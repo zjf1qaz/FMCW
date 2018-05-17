@@ -5,8 +5,8 @@ clear;
 %% --------------- Constants & configuration ------------------
 
 Fs = 48000;
-initFreq = 16e3;
-finlFreq = 22e3;	
+initFreq = 17e3;
+finlFreq = 23e3;	
 timeInterv = 0.02;
 
 % -------------------------------------------------------------
@@ -32,7 +32,7 @@ end
 douTrackSig = [ zeros(1, length(finChirp))', finChirp' ];
 audiowrite('gesture.wav', douTrackSig, Fs);
 rcvChirp = pcmread('test-triangle-001-20180516232326.pcm');
-[b, a] = butter(10, 15500/(Fs/2), 'high');
+[b, a] = butter(10, 16000/(Fs/2), 'high');
 rcvChirp = filtfilt(b, a, rcvChirp);
 % -------------------------------------------------------------
 %% ----------------------- Dechirp ----------------------------
